@@ -13,4 +13,5 @@ variable "owner" {
 variable "bucket_name" {
   type = string
   description = "Name of the bucket"
+  default   ="test-1234-20240-manu"
 }
