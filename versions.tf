@@ -13,6 +13,7 @@ provider "aws" {
   default_tags {
     tags = {
         password="123442password"
+        hate=true
     }
   }
 }
