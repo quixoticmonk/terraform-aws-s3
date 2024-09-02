@@ -12,7 +12,7 @@ provider "aws" {
   region = var.aws_region
   default_tags {
     tags = {
-        created_by=var.owner
+        password="123442password"
     }
   }
 }
