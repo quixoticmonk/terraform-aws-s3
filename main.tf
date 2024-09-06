@@ -13,26 +13,19 @@ variable "instance_name" {
 }
 
 
-data "aws_ami" "amazonlinux" {
+data "aws_ami" "ecs_ami" {
   most_recent = true
-
-  owners = ["137112412989"]
-
-  filter {
-    name   = "architecture"
-    values = ["x86_64"]
-  }
+  owners      = ["amazon"]
 
   filter {
-    name   = "virtualization-type"
-    values = ["hvm"]
+    name   = "name"
+    values = ["amzn2-ami-ecs-hvm-*-x86_64-ebs"]
   }
-
 }
 
 
 resource "aws_instance" "ubuntu" {
-  ami           = data.aws_ami.amazonlinux.id
+  ami           = data.aws_ami.ecs_ami.id
   instance_type = var.instance_type
 
   tags = {
