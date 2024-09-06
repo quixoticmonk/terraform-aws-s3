@@ -44,10 +44,6 @@ data "aws_ami" "amazonlinux" {
     values = ["hvm"]
   }
 
-  filter {
-    name   = "name"
-    values = ["ami-0182f373e66f89c85*"]
-  }
 }
 
 
