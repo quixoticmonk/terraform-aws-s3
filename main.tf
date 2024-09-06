@@ -46,7 +46,7 @@ data "aws_ami" "amazonlinux" {
 
   filter {
     name   = "name"
-    values = [ami-0182f373e66f89c85*"]
+    values = ["ami-0182f373e66f89c85*"]
   }
 }
 
