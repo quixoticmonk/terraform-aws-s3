@@ -40,18 +40,13 @@ data "aws_ami" "amazonlinux" {
   }
 
   filter {
-    name   = "root-device-type"
-    values = ["ebs"]
-  }
-
-  filter {
     name   = "virtualization-type"
     values = ["hvm"]
   }
 
   filter {
     name   = "name"
-    values = ["amzn-ami-hvm-2018.03.0.20190611-x86_64-gp2"]
+    values = [ami-0182f373e66f89c85*"]
   }
 }
 
