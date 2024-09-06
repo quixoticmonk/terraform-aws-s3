@@ -28,13 +28,41 @@ data "aws_ami" "ubuntu" {
   owners = ["099720109477"] # Canonical
 }
 
+
+data "aws_ami" "amazonlinux" {
+  most_recent = true
+
+  owners = ["137112412989"]
+
+  filter {
+    name   = "architecture"
+    values = ["x86_64"]
+  }
+
+  filter {
+    name   = "root-device-type"
+    values = ["ebs"]
+  }
+
+  filter {
+    name   = "virtualization-type"
+    values = ["hvm"]
+  }
+
+  filter {
+    name   = "name"
+    values = ["amzn-ami-hvm-2018.03.0.20190611-x86_64-gp2"]
+  }
+}
+
+
 resource "aws_instance" "ubuntu" {
-  ami           = data.aws_ami.ubuntu.id
+  ami           = data.aws_ami.amazonlinux.id
   instance_type = var.instance_type
 
   tags = {
     Name                 = var.instance_name
-    "Linux Distribution" = "Ubuntu"
+    "Linux Distribution" = "amazonlinux"
     "test" = "even"
   }
 }
