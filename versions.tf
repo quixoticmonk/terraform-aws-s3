@@ -3,6 +3,9 @@ required_providers {
     aws = {
       source  = "hashicorp/aws"
     }
+        awscc = {
+      source  = "hashicorp/awscc"
+    }
   }
 }
 
@@ -14,4 +17,8 @@ provider "aws" {
         created="manu"
     }
   }
+}
+
+provider "awscc" {
+  region = var.aws_region
 }
